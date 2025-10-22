@@ -1,0 +1,56 @@
+.home-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.explore-btn {
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #2d2059;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.explore-btn:hover {
+  background-color: #191013;
+  transform: scale(1.05);
+}
