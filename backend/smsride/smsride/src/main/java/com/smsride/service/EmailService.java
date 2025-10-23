@@ -12,6 +12,7 @@ public class EmailService {
     private JavaMailSender mailSender;
 
     public void sendCredentials(String toEmail, String password) {
+
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(toEmail);
         message.setSubject("Welcome to SMSRide - Your Login Credentials");
