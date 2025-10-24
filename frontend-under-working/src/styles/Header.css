@@ -15,33 +15,11 @@
   cursor: pointer;
 }
 
-
-.login-as-btn {
-  background-color: white;
-  border: 1px solid gray;
-  font-size: 1em;
-  padding: .4rem 3rem;
-  border-radius: 5px;
-}
-
-.login-type-box {
-  position: relative;
-}
-
-.login-type-drop-down {
-  border: 1px solid gray;
-  position: absolute;
-  top: 110%;
-}
-
-.login-type-drop-down li {
-  list-style-type: none;
-  list-style-position: inside;
-  padding: .4rem 2.5rem;
-
-}
-
-.login-type-drop-down li:hover {
-  background-color: rgb(39, 176, 255);
+.logout-btn {
+  border: none;
+  background-color: red;
+  padding: .4rem 1.5rem;
   color: white;
+  border-radius: 5px;
+  font-size: 1rem;
 }
