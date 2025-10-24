@@ -1,0 +1,54 @@
+
+.user-registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.user-registration-container h1{
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+
+.user-registration-form {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 5px;
+  width: 35%;
+}
+
+.user-registration-form > input {
+  margin-bottom: 10px;
+}
+
+.user-registration-form input {
+  padding: 5px 10px;
+  font-size: 15px;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.user-registration-form input[type="radio"] {
+  width: auto;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.user-role-input-box, .vehicle-type-input-box, .gender-input-box {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.user-registration-btn {
+  background-color: white;
+  border: 1px solid black;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+}
+
+
