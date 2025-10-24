@@ -18,17 +18,17 @@ export default function LoginPage() {
 
     if (isUserLoggedin === 'true' && role === 'ADMIN') {
       navigate('/admin-dashboard');
-      return ;
+      return;
     }
 
     if (isUserLoggedin === 'true' && role === 'DRIVER') {
       navigate('/driver-dashboard');
-      return ;
+      return;
     }
 
     if (isUserLoggedin === 'true' && role === 'PASSeNGER') {
       navigate('/passenger-dashboard');
-      return ;
+      return;
     }
   });
 
@@ -49,8 +49,10 @@ export default function LoginPage() {
       localStorage.setItem('role', data.role);
       localStorage.setItem('email', email);
       localStorage.setItem('isUserLoggedin', 'true');
+      localStorage.setItem('isFirstLogin', data.firstLogin);
 
-      
+
+
       if (data.role === 'ADMIN') {
         console.log(data.role);
         navigate('/admin-dashboard');
@@ -61,7 +63,7 @@ export default function LoginPage() {
         navigate('/driver-dashboard');
         return;
       }
-      
+
       if (data.role === 'PASSENGER' && !data.firstLogin) {
         navigate('/passenger-dashboard');
         return;
@@ -70,7 +72,7 @@ export default function LoginPage() {
       if (data.firstLogin) {
         localStorage.setItem('isFirstLogin', 'true');
         navigate('/reset-password');
-        return ;
+        return;
       }
 
 
@@ -87,38 +89,18 @@ export default function LoginPage() {
         <h1 className="admin-login-heading">Login</h1>
         <form className="admin-login-form">
 
-          <div className='role-input-box'>
-            <label>As :</label>
-            <input
-              type="radio"
-              name='role'
-              value="admin"
-              checked={role === 'admin'}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            <label>Admin</label>
+          <select
+            name="role"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="login-type-input"
+          >
+            <option value="">--- Login type ---</option>
+            <option value="admin">Admin</option>
+            <option value="driver">Driver</option>
+            <option value="passenger">Passenger</option>
+          </select>
 
-            <input
-              type="radio"
-              name='role'
-              value="driver"
-              checked={role === 'driver'}
-              onChange={(e) => setRole(e.target.value)}
-
-            />
-            <label>Driver</label>
-
-            <input
-              type="radio"
-              name='role'
-              value="passenger"
-              checked={role === 'passenger'}
-              onChange={(e) => setRole(e.target.value)}
-
-            />
-            <label>Passenger</label>
-
-          </div>
 
           <label >Email</label>
           <input
