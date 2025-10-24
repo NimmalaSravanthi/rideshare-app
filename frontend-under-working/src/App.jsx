@@ -6,6 +6,7 @@ import AdminDashboard from './pages/AdminDashboard.jsx';
 import UserRegistrationPage from './pages/UserRegistrationPage.jsx';
 import PassangerDashboard from './pages/PassangerDashboard.jsx';
 import DriverDashboard from './pages/DriverDashboard.jsx';
+import ResetPasswordPage from './pages/ResetPasswordPage.jsx';
 
 function App() {
 
@@ -19,6 +20,8 @@ function App() {
           <Route path='/user-registration' element={<UserRegistrationPage />} />
           <Route path='/driver-dashboard' element={<DriverDashboard />} />
           <Route path='/passanger-dashboard' element={<PassangerDashboard />} />
+          <Route path='/reset-password' element={<ResetPasswordPage />} />
+
 
 
         </Routes>

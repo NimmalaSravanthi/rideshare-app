@@ -67,6 +67,7 @@ export default function LoginPage() {
           <button
             className="admin-login-btn"
             onClick={() => handleLoginBtnClick}
+            type='reset'
           >Login in</button>
         </form>
       </div>
