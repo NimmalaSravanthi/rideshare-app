@@ -1,7 +1,33 @@
+import { useState } from "react";
 import Header from "../components/Header.jsx";
 
 import '../styles/ResetPasswordPage.css';
+import axios from "axios";
 export default function ResetPasswordPage() {
+
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleResetPassword = async () => {
+
+    const email = localStorage.getItem('email');
+
+    console.log(email);
+
+    if (!(password &&
+      password.length >= 8 &&
+      password === confirmPassword
+    )) {
+      console.log('Invalid password format');
+      return ;
+    }
+
+    const res = await axios.post(`http://localhost:8080/auth/reset-password?email=${email}&newPassword=${password}`);
+
+    console.log(res);
+
+    localStorage.setItem('isFirstLogin', 'false');
+  };
 
   return (
 
@@ -15,19 +41,24 @@ export default function ResetPasswordPage() {
           <label >New password</label>
           <input
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <label>Confirm password</label>
           <input
             type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
 
           <button
             className="reset-password-btn"
-            type='reset'
+            type='button'
+            onClick={handleResetPassword}
           >Reset</button>
         </form>
-      </div>      
+      </div>
 
     </>
   );

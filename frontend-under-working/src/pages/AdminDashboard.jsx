@@ -13,7 +13,6 @@ export default function AdminDashboard() {
   useEffect(() => {
     const isUserLoggedin = localStorage.getItem('isUserLoggedin');
     const role = localStorage.getItem('role');
-
     
     if (isUserLoggedin === 'true' && role === 'ADMIN') {
       setUserAuthentication(true);
@@ -31,8 +30,8 @@ export default function AdminDashboard() {
       return ;
     }
 
-    if (role === 'PASSANGER') {
-      navigate('/passanger-dashboard');
+    if (role === 'PASSENGER') {
+      navigate('/passenger-dashboard');
       return ;
     }
 

@@ -80,12 +80,12 @@ export default function UserRegistrationPage() {
             <input
               type="radio"
               name='user-role'
-              value="passanger"
-              checked={userRole === 'passanger'}
+              value="passenger"
+              checked={userRole === 'passenger'}
               onClick={(e) => setUserRole(e.target.value)}
 
             />
-            <label>Passanger</label>
+            <label>Passenger</label>
 
           </div>
 
@@ -138,7 +138,7 @@ export default function UserRegistrationPage() {
           }
 
           {
-            userRole === 'passanger' && (
+            userRole === 'passenger' && (
               <>
 
 
@@ -157,7 +157,7 @@ export default function UserRegistrationPage() {
           }
 
           {
-            (userRole === 'driver' || userRole === 'passanger') && (
+            (userRole === 'driver' || userRole === 'passenger') && (
               <button
                 className='user-registration-btn'
               >

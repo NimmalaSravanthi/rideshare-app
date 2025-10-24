@@ -4,23 +4,25 @@ import LandingPage from './pages/LandingPage.jsx';
 import AdminLoginPage from './pages/LoginPage.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
 import UserRegistrationPage from './pages/UserRegistrationPage.jsx';
-import PassangerDashboard from './pages/PassangerDashboard.jsx';
+import PassengerDashboard from './pages/PassengerDashboard.jsx';
 import DriverDashboard from './pages/DriverDashboard.jsx';
 import ResetPasswordPage from './pages/ResetPasswordPage.jsx';
 import { useEffect, useState } from 'react';
 
 function App() {
 
+  const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
   const [isUserAuthenticated, setUserAuthentication] = useState(false);
 
   useEffect(() => {
     const savedRole = localStorage.getItem('role');
+    const savedEmail = localStorage.getItem('email');
     const isUserLoggedin = localStorage.getItem('isUserLoggedin');
     if (
       savedRole === 'ADMIN' ||
       savedRole === 'DRIVER' ||
-      savedRole === 'PASSANGER' &&
+      savedRole === 'PASSENGER' &&
       isUserLoggedin === 'true'
     ) {
       setRole(savedRole);
@@ -38,7 +40,7 @@ function App() {
           <Route path='/admin-dashboard' element={<AdminDashboard />} />
           <Route path='/user-registration' element={<UserRegistrationPage />} />
           <Route path='/driver-dashboard' element={<DriverDashboard />} />
-          <Route path='/passanger-dashboard' element={<PassangerDashboard />} />
+          <Route path='/passenger-dashboard' element={<PassengerDashboard />} />
           <Route path='/reset-password' element={<ResetPasswordPage />} />
         </Routes>
       </BrowserRouter>

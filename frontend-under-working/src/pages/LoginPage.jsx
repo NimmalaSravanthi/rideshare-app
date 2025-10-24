@@ -26,19 +26,19 @@ export default function LoginPage() {
       return ;
     }
 
-    if (isUserLoggedin === 'true' && role === 'PASSANGER') {
-      navigate('/passanger-dashboard');
+    if (isUserLoggedin === 'true' && role === 'PASSeNGER') {
+      navigate('/passenger-dashboard');
       return ;
     }
   });
 
   const handleLogin = async () => {
 
-    console.log(role, email, password);
 
     try {
       const res = await axios.post(`http://localhost:8080/auth/login?email=${email}&password=${password}`);
       const data = res.data;
+
 
       if (data.status === 'invalid') {
         console.log('Login credentials are invalid!!');
@@ -46,13 +46,34 @@ export default function LoginPage() {
       }
 
 
-      localStorage.setItem('role', data.role)
-      localStorage.setItem('isUserLoggedin', 'true')
+      localStorage.setItem('role', data.role);
+      localStorage.setItem('email', email);
+      localStorage.setItem('isUserLoggedin', 'true');
 
+      
       if (data.role === 'ADMIN') {
+        console.log(data.role);
         navigate('/admin-dashboard');
         return;
       }
+
+      if (data.role === 'DRIVER' && !data.firstLogin) {
+        navigate('/driver-dashboard');
+        return;
+      }
+      
+      if (data.role === 'PASSENGER' && !data.firstLogin) {
+        navigate('/passenger-dashboard');
+        return;
+      }
+
+      if (data.firstLogin) {
+        localStorage.setItem('isFirstLogin', 'true');
+        navigate('/reset-password');
+        return ;
+      }
+
+
 
     } catch (err) {
       console.log('Error occured in login: ' + err);
@@ -90,12 +111,12 @@ export default function LoginPage() {
             <input
               type="radio"
               name='role'
-              value="passanger"
-              checked={role === 'passanger'}
+              value="passenger"
+              checked={role === 'passenger'}
               onChange={(e) => setRole(e.target.value)}
 
             />
-            <label>Passanger</label>
+            <label>Passenger</label>
 
           </div>
 
