@@ -14,7 +14,7 @@ export default function UserRegistrationPage() {
   return (
 
     <>
-      <Header showLoginTypeBtn={true}/>
+      <Header showLoginTypeBtn={true} />
       <div className='user-registration-container'>
         <h1>User Registration</h1>
         <form className='user-registration-form'>
@@ -35,37 +35,37 @@ export default function UserRegistrationPage() {
           />
 
           <div className='gender-input-box'>
-                  <label>Gender :</label>
-                  <input
-                    type="radio"
-                    name='gender'
-                    value="male"
-                    checked={gender === 'male'}
-                    onClick={(e) => setGender(e.target.value)}
-                  />
-                  <label>Male</label>
+            <label>Gender :</label>
+            <input
+              type="radio"
+              name='gender'
+              value="male"
+              checked={gender === 'male'}
+              onClick={(e) => setGender(e.target.value)}
+            />
+            <label>Male</label>
 
-                  <input
-                    type="radio"
-                    name='gender'
-                    value="female"
-                    checked={gender === 'female'}
-                    onClick={(e) => setGender(e.target.value)}
+            <input
+              type="radio"
+              name='gender'
+              value="female"
+              checked={gender === 'female'}
+              onClick={(e) => setGender(e.target.value)}
 
-                  />
-                  <label>Female</label>
+            />
+            <label>Female</label>
 
-                  <input
-                    type="radio"
-                    name='gender'
-                    value="others"
-                    checked={gender === 'others'}
-                    onClick={(e) => setGender(e.target.value)}
+            <input
+              type="radio"
+              name='gender'
+              value="others"
+              checked={gender === 'others'}
+              onClick={(e) => setGender(e.target.value)}
 
-                  />
-                  <label>Others</label>
+            />
+            <label>Others</label>
 
-                </div>
+          </div>
 
           <div className='user-role-input-box'>
             <label>User Role :</label>
@@ -141,7 +141,7 @@ export default function UserRegistrationPage() {
             userRole === 'passanger' && (
               <>
 
-               
+
 
                 <label >Adhaar Number</label>
                 <input
