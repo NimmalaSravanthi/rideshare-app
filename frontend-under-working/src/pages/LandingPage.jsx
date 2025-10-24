@@ -15,7 +15,7 @@ export default function LandingPage() {
             Your journey begins with just one connection</h1>
           <button
             className='get-started-btn'
-            onClick={() => navigate('/admin-login')}
+            onClick={() => navigate('/login')}
           >
             Get started
           </button>

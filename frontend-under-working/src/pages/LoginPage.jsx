@@ -12,9 +12,6 @@ export default function LoginPage() {
 
   const handleLoginBtnClick = () => {
 
-    if (role === 'admin') {
-      navigate('admin-dashboard');
-    }
   }
 
   return (
