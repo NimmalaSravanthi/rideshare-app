@@ -8,14 +8,9 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
   return (
     <>
-      <Header showLoginTypeBtn={true}/>
+      <Header/>
       <div className="admin-dashboard">
-        <button
-        className="register-a-user-btn"
-        onClick={() => navigate('/user-registration')}
-        >
-          Register a user
-        </button>
+        <h1>Admin dashboard</h1>
       </div>
     </>
   );

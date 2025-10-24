@@ -10,6 +10,13 @@ export default function LoginPage() {
 
   const navigate = useNavigate();
 
+  const handleLoginBtnClick = () => {
+
+    if (role === 'admin') {
+      navigate('admin-dashboard');
+    }
+  }
+
   return (
     <>
       <Header showLoginTypeBtn={true} />
@@ -62,7 +69,7 @@ export default function LoginPage() {
 
           <button
             className="admin-login-btn"
-            onClick={() => navigate('/admin-dashboard')}
+            onClick={() => handleLoginBtnClick}
           >Login in</button>
         </form>
       </div>

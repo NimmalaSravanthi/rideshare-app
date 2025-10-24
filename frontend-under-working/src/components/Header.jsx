@@ -1,7 +1,6 @@
 
 import '../styles/Header.css';
 import{ useNavigate } from 'react-router-dom';
-import LoginAs from './LoginAs.jsx';
 export default function Header() {
 
   const navigate = useNavigate();
