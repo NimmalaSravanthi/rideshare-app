@@ -7,28 +7,8 @@ import UserRegistrationPage from './pages/UserRegistrationPage.jsx';
 import PassengerDashboard from './pages/PassengerDashboard.jsx';
 import DriverDashboard from './pages/DriverDashboard.jsx';
 import ResetPasswordPage from './pages/ResetPasswordPage.jsx';
-import { useEffect, useState } from 'react';
 
 function App() {
-
-  const [email, setEmail] = useState('');
-  const [role, setRole] = useState('');
-  const [isUserAuthenticated, setUserAuthentication] = useState(false);
-
-  useEffect(() => {
-    const savedRole = localStorage.getItem('role');
-    const savedEmail = localStorage.getItem('email');
-    const isUserLoggedin = localStorage.getItem('isUserLoggedin');
-    if (
-      savedRole === 'ADMIN' ||
-      savedRole === 'DRIVER' ||
-      savedRole === 'PASSENGER' &&
-      isUserLoggedin === 'true'
-    ) {
-      setRole(savedRole);
-      setUserAuthentication(true);
-    }
-  }, []);
 
   return (
 
