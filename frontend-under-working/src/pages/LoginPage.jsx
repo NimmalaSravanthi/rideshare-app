@@ -26,7 +26,7 @@ export default function LoginPage() {
       return;
     }
 
-    if (isUserLoggedin === 'true' && role === 'PASSeNGER') {
+    if (isUserLoggedin === 'true' && role === 'PASSENGER') {
       navigate('/passenger-dashboard');
       return;
     }
@@ -85,9 +85,9 @@ export default function LoginPage() {
   return (
     <>
       <Header showLoginTypeBtn={true} />
-      <div className="admin-login-container">
-        <h1 className="admin-login-heading">Login</h1>
-        <form className="admin-login-form">
+      <div className="login-container">
+        <h1 className="login-heading">Login</h1>
+        <form className="login-form">
 
           <select
             name="role"
@@ -117,7 +117,7 @@ export default function LoginPage() {
           />
 
           <button
-            className="admin-login-btn"
+            className="login-btn"
             onClick={handleLogin}
             type='button'
           >Login in</button>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "../components/Header.jsx";
+import { useNavigate } from "react-router-dom";
 
 import '../styles/ResetPasswordPage.css';
 import axios from "axios";
@@ -19,14 +20,19 @@ export default function ResetPasswordPage() {
       password === confirmPassword
     )) {
       console.log('Invalid password format');
-      return ;
+      return;
     }
 
-    const res = await axios.post(`http://localhost:8080/auth/reset-password?email=${email}&newPassword=${password}`);
+    try {
+      const res = await axios.post(`http://localhost:8080/auth/reset-password?email=${email}&newPassword=${password}`);
 
-    console.log(res);
+      console.log(res);
 
-    localStorage.setItem('isFirstLogin', 'false');
+      localStorage.setItem('isFirstLogin', 'false');
+      
+    } catch (err) {
+      console.log('error occured' + err);
+    }
   };
 
   return (

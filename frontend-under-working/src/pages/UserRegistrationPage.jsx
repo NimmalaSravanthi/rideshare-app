@@ -2,13 +2,59 @@
 import Header from '../components/Header.jsx';
 import '../styles/UserRegistrationPage.css';
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function UserRegistrationPage() {
-
 
   const [userRole, setUserRole] = useState('');
   const [vechileType, setVechileType] = useState('');
   const [gender, setGender] = useState('');
+
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    contact: '',
+    role: 'PASSENGER',
+    vehicleDetails: ''
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+
+
+  const handleRegister = async () => {
+
+    const payload = {
+      ...form,
+      role: userRole.toUpperCase(),  // DRIVER or PASSENGER
+    };
+
+    try {
+      const res = await axios.post(
+        'http://localhost:8080/admin/onboard',
+        payload,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      console.log(res);
+
+
+    } catch (err) {
+      console.log('error occured ' + err);
+    }
+
+
+
+
+    console.log('User onboarded and credentials emailed');
+  };
+
 
 
   return (
@@ -21,17 +67,25 @@ export default function UserRegistrationPage() {
           <label >Name</label>
           <input
             type="text"
+            name='name'
+            onChange={handleChange}
           />
 
           <label>Email</label>
           <input
             type="email"
+            name='email'
+
+            onChange={handleChange}
+
           />
 
 
           <label>Mobile</label>
           <input
             type="number"
+            name='contact'
+            onChange={handleChange}
           />
 
           <div className='gender-input-box'>
@@ -126,7 +180,9 @@ export default function UserRegistrationPage() {
                 </div>
                 <label >Vehicle Number</label>
                 <input
+                  name='vehicleDetails'
                   type="text"
+                  onChange={handleChange}
                 />
 
                 <label >Driver's License Number</label>
@@ -160,6 +216,8 @@ export default function UserRegistrationPage() {
             (userRole === 'driver' || userRole === 'passenger') && (
               <button
                 className='user-registration-btn'
+                onClick={handleRegister}
+                type='button'
               >
                 Register
               </button>

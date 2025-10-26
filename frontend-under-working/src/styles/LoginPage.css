@@ -1,5 +1,5 @@
 
-.admin-login-container {
+.login-container {
   height: 85vh;
   display: flex;
   justify-content: center;
@@ -9,7 +9,7 @@
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-.admin-login-form {
+.login-form {
   padding: 20px;
   border-radius: 5px;
   width: 35%;
@@ -17,11 +17,11 @@
   box-shadow: .5px .5px 10px gray;
 }
 
-.admin-login-form > input {
+.login-form > input {
   margin-bottom: 20px;
 }
 
-.admin-login-form input {
+.login-form input {
   padding: 5px 10px;
   font-size: 15px;
   outline: none;
@@ -30,7 +30,7 @@
   width: 100%;
 }
 
-.admin-login-btn {
+.login-btn {
   padding: 10px 30px;
   border: none;
   border-radius: 5px;
